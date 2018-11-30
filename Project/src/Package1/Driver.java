@@ -26,18 +26,14 @@ public class Driver {
 		int boQty1 = re.getOrdQty(qty1);
 		int boQty2 = re.getOrdQty(qty2);
 		int boQty3 = re.getOrdQty(qty3);
-		product1.setBackOrder(boQty1);
-		product2.setBackOrder(boQty2);
-		product3.setBackOrder(boQty3);
+	
 		double price1 = inv.SearchForPrice("Paper");
 		double price2 = inv.SearchForPrice("Pickles");
 		double price3 = inv.SearchForPrice("Nvidia 1080 TI Graphics Card");
 		double resupply1 = re.SetOrdTotal(price1);
 		double resupply2 = re.SetOrdTotal(price2);
 		double resupply3 = re.SetOrdTotal(price3);
-		product1.setBackOrderTotal(resupply1);
-		product2.setBackOrderTotal(resupply2);
-		product3.setBackOrderTotal(resupply3);
+	
 		String item = inv.searchByProductName("Nvidia 1080 TI Graphics Card");
 	
 		System.out.print(inv.toString());
@@ -45,7 +41,6 @@ public class Driver {
 		System.out.println(qty1);
 		System.out.println(qty2);
 		System.out.println(qty3);
-		//System.out.println(re.toString());
 		
 
 	}

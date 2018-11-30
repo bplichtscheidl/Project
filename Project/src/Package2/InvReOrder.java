@@ -5,10 +5,11 @@ public class InvReOrder {
 	private int ordQty;
 	private double tax;
 	private double total;
+	private BackOrder qty;
 	
 	public InvReOrder() {
-		ordQty = 10;
-		tax = 1.07125;
+		this.ordQty = 10;
+		this.tax = 1.07125;
 	}
 	
 	//Depending on what the boolean was from BackOrder
@@ -46,7 +47,7 @@ public class InvReOrder {
 		this.tax = tax;
 	}
 	
-	/*public String toString() {
+	public String toString() {
 		String resupply = " ";
 		if(this.ordQty > 0) {
 		resupply = "Backorder total: " + this.total + "\nBackorder quantity: "
@@ -54,5 +55,5 @@ public class InvReOrder {
 		}
 	
 		return resupply;
-	}*/
+	}
 }

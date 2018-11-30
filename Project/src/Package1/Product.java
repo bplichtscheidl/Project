@@ -1,14 +1,17 @@
 package Package1;
+import Package2.*;
 
 import java.util.Random;
+
+
 
 public class Product {
 	private String productName;
 	private int qty;
 	private double unitCost;
 	private long productId;
-	private int backOrder;
-	private double backOrderTotal;
+	private InvReOrder backOrder;
+	private PurchaseOrders order;
 	
 	public Product() {
 		this.productName = "No name";
@@ -16,7 +19,7 @@ public class Product {
 		this.unitCost = 0;
 	}
 	//Creating an object
-	public Product(String productName, int qty, double unitCost, long productId) {
+	public Product(String productName, int qty, double unitCost, long productId, InvReOrder backOrder, PurchaseOrders order) {
 		this.productName = productName;
 		this.qty = qty;
 		this.unitCost = unitCost;
@@ -24,6 +27,8 @@ public class Product {
 		long num = (long)(rand.nextInt(900000000)+ 100000000);
 		productId = num;
 		this.productId = productId;
+		this.backOrder = backOrder;
+		this.order = order;
 	}
 	
 	public String getProductName() {
@@ -54,26 +59,11 @@ public class Product {
 		return productId;
 	}
 	
-	public void setBackOrder(int backOrder) {
-		this.backOrder = backOrder;
-	}
-	
-	public int getBackOrder(int qty) {
-		return backOrder;
-	}
-	
-	public double getBackOrderTotal() {
-		return backOrderTotal;
-	}
-	
-	public void setBackOrderTotal(double backOrderTotal) {
-		this.backOrderTotal = backOrderTotal;
-	}
 	//Displays product information
 	public String toString() {
 		return ("Product: " + this.productName + "\n" + "Quantity: " + this.qty + "\n" + "Unit Cost: $" + this.unitCost +
-				 "\n" + "Product Id: "+ this.productId + "\n" + "Backorder Quantity: " + this.backOrder + "\n"
-				 +"Backorder total: $" + this.backOrderTotal + "\n");
+				 "\n" + "Product Id: "+ this.productId + "\n" + this.backOrder.toString() + "Purchase Order: " +
+				this.order.toString());
 	}
 
 }
