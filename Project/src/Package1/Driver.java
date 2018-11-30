@@ -1,8 +1,39 @@
 package Package1;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+
 import Package2.*;
 
-public class Driver {
 
+public class Driver extends JFrame{
+
+	// GUI
+	
+	// Initialize GUI Components
+	
+	
+	public Driver(String title) {
+		super(title);
+		
+		// Main GUI Settings
+		setSize(500, 500); // Change this later
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
+	}
+	
+	private class ButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+						
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 	
 		Inventory inv = new Inventory();

@@ -15,6 +15,7 @@ public class Product {
 		this.qty = 0;
 		this.unitCost = 0;
 	}
+	
 	//Creating an object
 	public Product(String productName, int qty, double unitCost, long productId) {
 		this.productName = productName;
@@ -69,6 +70,7 @@ public class Product {
 	public void setBackOrderTotal(double backOrderTotal) {
 		this.backOrderTotal = backOrderTotal;
 	}
+	
 	//Displays product information
 	public String toString() {
 		return ("Product: " + this.productName + "\n" + "Quantity: " + this.qty + "\n" + "Unit Cost: $" + this.unitCost +
