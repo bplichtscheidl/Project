@@ -32,6 +32,22 @@ public class Product {
 		this.order = order;
 	}
 	
+	public InvReOrder getBackOrder() {
+		return backOrder;
+	}
+
+	public void setBackOrder(InvReOrder backOrder) {
+		this.backOrder = backOrder;
+	}
+
+	public PurchaseOrders getOrder() {
+		return order;
+	}
+
+	public void setOrder(PurchaseOrders order) {
+		this.order = order;
+	}
+
 	public String getProductName() {
 		return productName;
 	}

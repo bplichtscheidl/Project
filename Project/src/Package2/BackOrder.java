@@ -27,6 +27,10 @@ public class BackOrder {
 		this.bo = bo;
 	}
 	
+	public boolean getBo() {
+		return bo;
+	}
+	
 	//possible switch statement instead of if?
 
 }

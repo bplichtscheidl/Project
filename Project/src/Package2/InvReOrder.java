@@ -12,6 +12,10 @@ public class InvReOrder {
 		this.tax = 1.07125;
 	}
 	
+	public void getBo(BackOrder qty) {
+		getOrdQty(qty.getBo());
+		}
+	
 	//Depending on what the boolean was from BackOrder
 	//it will set either 10 or 0 for the back order quantity
 	public int getOrdQty(boolean qty) {
@@ -31,6 +35,14 @@ public class InvReOrder {
 		return this.total = total;
 	}
 	
+	public BackOrder getQty() {
+		return qty;
+	}
+
+	public void setQty(BackOrder qty) {
+		this.qty = qty;
+	}
+
 	public double getOrdTotal() {
 		return total;
 	}
