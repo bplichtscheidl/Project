@@ -37,7 +37,8 @@ public class PurchaseOrders {
 	}
 	
 	public String toString() {
-		String purchaseOrder = " ";
+		String purchaseOrder = "Purchase Order \n" + "Order Size: " + ordSize + "Date: " + this.date +
+				"Estimated Arrival Time: " + this.estArrivalTime;
 		return purchaseOrder;
 	}
 
