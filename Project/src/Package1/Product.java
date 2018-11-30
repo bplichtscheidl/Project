@@ -6,6 +6,7 @@ import java.util.Random;
 
 
 public class Product {
+	
 	private String productName;
 	private int qty;
 	private double unitCost;
@@ -24,9 +25,12 @@ public class Product {
 		this.productName = productName;
 		this.qty = qty;
 		this.unitCost = unitCost;
+		
+		// Generate a product Id
 		Random rand = new Random();
 		long num = (long)(rand.nextInt(900000000)+ 100000000);
 		productId = num;
+		
 		this.productId = productId;
 		this.backOrder = backOrder;
 		this.order = order;

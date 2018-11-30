@@ -15,6 +15,27 @@ public class Driver extends JFrame{
 	
 	// Initialize GUI Components
 	
+	// Panels
+	private JPanel mainBtnPanel = new JPanel();
+	private JPanel invDisplayPanel = new JPanel();
+	
+	
+	// Labels
+	
+	
+	//Buttons
+	private JButton createOrder = new JButton("Create an order");
+	private JButton searchForItem = new JButton("Search for an item");
+	private JButton addItem = new JButton("Add an item");
+	private JButton refreshInv = new JButton("Refresh Inventory");
+	
+	
+	//Text Area
+	private JTextArea inventory = new JTextArea();
+	
+	
+	
+	
 	
 	public Driver(String title) {
 		super(title);
@@ -35,6 +56,9 @@ public class Driver extends JFrame{
 	}
 	
 	public static void main(String[] args) {
+		
+		Driver gui = new Driver("Inventory Manager");
+		gui.setVisible(true);
 	
 		/*Inventory inv = new Inventory();
 		BackOrder bo = new BackOrder();
