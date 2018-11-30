@@ -37,8 +37,8 @@ public class PurchaseOrders {
 	}
 	
 	public String toString() {
-		String str = " ";
-		return str;
+		String purchaseOrder = " ";
+		return purchaseOrder;
 	}
 
 }

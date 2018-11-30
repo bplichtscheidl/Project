@@ -1,11 +1,42 @@
 package Package1;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+
 import Package2.*;
 
-public class Driver {
 
+public class Driver extends JFrame{
+
+	// GUI
+	
+	// Initialize GUI Components
+	
+	
+	public Driver(String title) {
+		super(title);
+		
+		// Main GUI Settings
+		setSize(500, 500); // Change this later
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
+	}
+	
+	private class ButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+						
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 	
-		Inventory inv = new Inventory();
+		/*Inventory inv = new Inventory();
 		BackOrder bo = new BackOrder();
 		InvReOrder re = new InvReOrder();
 		Product product1 = new Product("Paper", 3, 59.99, 000000000);
@@ -40,7 +71,7 @@ public class Driver {
 		System.out.println(item);
 		System.out.println(qty1);
 		System.out.println(qty2);
-		System.out.println(qty3);
+		System.out.println(qty3);*/
 		
 
 	}
