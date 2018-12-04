@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-
+import javax.swing.border.EmptyBorder;
 
 import Package2.*;
 
@@ -16,24 +16,29 @@ public class Driver extends JFrame{
 	// Initialize GUI Components
 	
 	// Panels
-	private JPanel mainBtnPanel = new JPanel();
-	private JPanel invDisplayPanel = new JPanel();
+	private JPanel contentPane = new JPanel();
+	private JPanel topPanel = new JPanel(new FlowLayout());
+	private JPanel consolePanel = new JPanel(new BorderLayout(0, 0));
+	private JPanel bottomPanel = new JPanel();
 	
 	
 	// Labels
+	private JLabel searchLbl = new JLabel("Search for an item: ");
 	
-	
-	//Buttons
+	// Buttons
 	private JButton createOrder = new JButton("Create an order");
-	private JButton searchForItem = new JButton("Search for an item");
+	private JButton searchForItem = new JButton("Search");
 	private JButton addItem = new JButton("Add an item");
 	private JButton refreshInv = new JButton("Refresh Inventory");
 	
 	
-	//Text Area
-	private JTextArea inventory = new JTextArea();
+	// Text Area
+	private JTextArea invConsole = new JTextArea();
+	private JScrollPane scrollPane = new JScrollPane();
 	
 	
+	// Text Fields
+	private JTextField searchTxtFld = new JTextField();
 	
 	
 	
@@ -43,9 +48,60 @@ public class Driver extends JFrame{
 		// Main GUI Settings
 		setSize(500, 500); // Change this later
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLayout(new BorderLayout());
+		
+		setBounds(100, 100, 450, 300);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		// Create the panels used in the GUI
+		createTopPanel();
+		createConsolePanel();
+		createBottomPanel();
+		
+		// Add the sub-panels to contentPane
+		
+		contentPane.add(topPanel, BorderLayout.NORTH);
+		contentPane.add(consolePanel, BorderLayout.CENTER);
+		contentPane.add(bottomPanel, BorderLayout.SOUTH);
 	}
 	
+		
+
+	private void createTopPanel() {
+		// Add components to the Top Panel
+		topPanel.add(addItem);
+		topPanel.add(createOrder);
+		topPanel.add(refreshInv);
+		
+	}
+
+
+
+	private void createConsolePanel() {
+		// Add components to the Console Panel
+		consolePanel.add(invConsole, BorderLayout.CENTER);
+		consolePanel.add(scrollPane, BorderLayout.CENTER);
+		
+		// Add invConsole to scrollPane
+		scrollPane.setViewportView(invConsole);
+;		
+	}
+
+
+
+	private void createBottomPanel() {
+		// Add components to the Bottom Panel
+		bottomPanel.add(searchLbl);
+		
+		bottomPanel.add(searchTxtFld);
+		searchTxtFld.setColumns(10);
+		
+		bottomPanel.add(searchForItem);
+	}
+
+
+
 	private class ButtonListener implements ActionListener {
 
 		@Override
