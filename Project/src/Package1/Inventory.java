@@ -23,13 +23,30 @@ public class Inventory {
 	//Searches through the array by product name
 	public String searchByProductName(String object) {
 		String productsName = " ";
+		Double productPrice = 0.0;
+		int productQty = 0;
+		//boolean boCheck = false;
+		InvReOrder reOrder = new InvReOrder();
+		BackOrder bo = new BackOrder();
+		
 		
 		for(int i = 0; i < products.length; i++) {
 			if(products[i] != null) {
 				productsName = products[i].getProductName();
 			}
 			
+			//transferring data to the other classes
 			if(productsName.equalsIgnoreCase(object)) {
+				
+				productQty = products[i].getQty();
+				bo.setBo(productQty);
+				
+				boolean boCheck = bo.getBo();
+				reOrder.setOrdQty(boCheck);
+				
+				productPrice = products[i].getUnitCost();
+				reOrder.SetOrdTotal(productPrice);
+				
 				productsName = products[i].toString();
 				break;
 			}
@@ -44,49 +61,6 @@ public class Inventory {
 				+productsName;
 	}
 	
-	//Searches the array by product name and gets the quantity of the product
-	public int SearchForQty(String object) {
-		String productsName = " ";
-		int productQty = 0;
-		
-		for(int i = 0; i < products.length; i++) {
-			if(products[i] != null) {
-				productsName = products[i].getProductName();
-			}
-	
-			if(productsName.equalsIgnoreCase(object)) {
-				productQty = products[i].getQty();
-				break;
-			}
-			else if(!(productsName.equalsIgnoreCase(object))) {
-				productQty = 0;
-			}
-			
-		}
-		return productQty;
-	}
-	
-	//Searches the array by product name and gets the price of the product
-	public double SearchForPrice(String object) {
-		String productsName = " ";
-		double productPrice = 0;
-	
-		for(int i = 0; i < products.length; i++) {
-			if(products[i] != null) {
-				productsName = products[i].getProductName();
-			}
-	
-			if(productsName.equalsIgnoreCase(object)) {
-				productPrice = products[i].getUnitCost();
-				break;
-			}
-			else if(!(productsName.equalsIgnoreCase(object))) {
-				productPrice = 1000000.00;
-			}
-			
-		}
-		return productPrice;
-	}
 	
 	//adds a new product to the array
 	public void addProduct(Product product) {
@@ -112,8 +86,7 @@ public class Inventory {
 	public String toString() {
 		String storeInventory = this.name;
 		for(int i = 0; i < index; i++) {
-			storeInventory += products[i].toString() + "_______________" 
-					+ "__________________________\n"
+			storeInventory += products[i].toString() + "\n_________________________________________\n"
 					+ "\n";
 		}
 		return storeInventory;

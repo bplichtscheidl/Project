@@ -96,7 +96,22 @@ public class Driver extends JFrame{
 		System.out.println(qty1);
 		System.out.println(qty2);
 		System.out.println(qty3);*/
-		
+			Inventory inv = new Inventory();
+			BackOrder bo = new BackOrder();
+			InvReOrder re = new InvReOrder();
+			Product product1 = new Product("Paper", 5, 59.99, re);
+			Product product2 = new Product("Pickles", 6, 3.99, re);
+			Product product3 = new Product("Nvidia 1080 TI Graphics Card", 3, 899.99, re);
+			
+			
+			inv.addProduct(product1);
+			inv.addProduct(product2);
+			inv.addProduct(product3);
+			
+			System.out.println(inv.toString());
+			
+			String item = inv.searchByProductName("Pickles");
+			System.out.println(item);
 
 	}
 

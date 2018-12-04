@@ -3,55 +3,30 @@ import Package2.*;
 
 import java.util.Random;
 
-
-
 public class Product {
-	
 	private String productName;
 	private int qty;
 	private double unitCost;
 	private long productId;
-	private InvReOrder backOrder;
-	private PurchaseOrders order;
-	
-	public Product() {
-		this.productName = "No name";
-		this.qty = 0;
-		this.unitCost = 0;
-	}
+	private InvReOrder reOrder;
 	
 	//Creating an object
-	public Product(String productName, int qty, double unitCost, long productId, InvReOrder backOrder, PurchaseOrders order) {
+	public Product(String productName, int qty, double unitCost, InvReOrder reOrder) {
 		this.productName = productName;
 		this.qty = qty;
 		this.unitCost = unitCost;
-		
-		// Generate a product Id
+		this.reOrder = reOrder;
+		this.productId = getID();
+	}
+	
+	//Generates random item number
+	public long getID() {
 		Random rand = new Random();
 		long num = (long)(rand.nextInt(900000000)+ 100000000);
 		productId = num;
-		
-		this.productId = productId;
-		this.backOrder = backOrder;
-		this.order = order;
+		return productId;
 	}
 	
-	public InvReOrder getBackOrder() {
-		return backOrder;
-	}
-
-	public void setBackOrder(InvReOrder backOrder) {
-		this.backOrder = backOrder;
-	}
-
-	public PurchaseOrders getOrder() {
-		return order;
-	}
-
-	public void setOrder(PurchaseOrders order) {
-		this.order = order;
-	}
-
 	public String getProductName() {
 		return productName;
 	}
@@ -79,12 +54,20 @@ public class Product {
 	public long getProductId() {
 		return productId;
 	}
+	
+	public InvReOrder getReOrder() {
+		return reOrder;
+	}
+
+	public void setReOrder(InvReOrder reOrder) {
+		this.reOrder = reOrder;
+	}
 
 	//Displays product information
 	public String toString() {
-		return ("Product: " + this.productName + "\n" + "Quantity: " + this.qty + "\n" + "Unit Cost: $" + this.unitCost +
-				 "\n" + "Product Id: "+ this.productId + "\n" + this.backOrder.toString() + "Purchase Order: " +
-				this.order.toString());
+		return ("Product: " + this.productName + "\n" + "Quantity: " + this.qty + 
+				"\n" + "Unit Cost: $" + this.unitCost +"\n" + "Product Id: " 
+				+ this.productId +"\n" + reOrder.toString());
 	}
 
 }

@@ -10,19 +10,19 @@ public class BackOrder {
 	}
 
 	//Testing if the quantity of the item is above or below the minimum
-	public boolean isBo(int foundQty) {
-		if(foundQty == 0) {
-			System.out.println("Fatal error");
-		}
+	public void setBo(int foundQty) {
+		boolean bo = false;
+		
 		if(foundQty < this.minQty) {
 			this.bo = true;
 		}
 		else {
 			this.bo = false;
+			
 		}
-		return this.bo;
+		this.bo = bo;
 	}
-
+	
 	public void setBo(boolean bo) {
 		this.bo = bo;
 	}
@@ -30,7 +30,13 @@ public class BackOrder {
 	public boolean getBo() {
 		return bo;
 	}
-	
-	//possible switch statement instead of if?
+
+	public int getMinQty() {
+		return minQty;
+	}
+
+	public void setMinQty(int minQty) {
+		this.minQty = minQty;
+	}
 
 }
