@@ -11,7 +11,7 @@ import Package2.*;
 
 public class Driver extends JFrame{
 
-	// GUI
+// GUI
 	
 	// Initialize GUI Components
 	
@@ -46,10 +46,11 @@ public class Driver extends JFrame{
 		super(title);
 		
 		// Main GUI Settings
-		setSize(500, 500); // Change this later
+		
+		//setSize(500, 500); SetBounds overrides this
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		setBounds(100, 100, 450, 300);
+		setBounds(600, 400, 450, 300); // (x, y, width, height)
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -64,6 +65,12 @@ public class Driver extends JFrame{
 		contentPane.add(topPanel, BorderLayout.NORTH);
 		contentPane.add(consolePanel, BorderLayout.CENTER);
 		contentPane.add(bottomPanel, BorderLayout.SOUTH);
+		
+		// Add the ActionListeners
+		// Example: btn.addActionListener(new ButtonListener());
+		
+		
+		
 	}
 	
 		
@@ -81,6 +88,7 @@ public class Driver extends JFrame{
 	private void createConsolePanel() {
 		// Add components to the Console Panel
 		consolePanel.add(invConsole, BorderLayout.CENTER);
+		invConsole.setEditable(false);
 		consolePanel.add(scrollPane, BorderLayout.CENTER);
 		
 		// Add invConsole to scrollPane
@@ -110,6 +118,7 @@ public class Driver extends JFrame{
 		}
 		
 	}
+	
 	
 	public static void main(String[] args) {
 		
