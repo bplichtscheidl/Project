@@ -11,11 +11,10 @@ public class Product {
 	private InvReOrder reOrder;
 	
 	//Creating an object
-	public Product(String productName, int qty, double unitCost, InvReOrder reOrder) {
+	public Product(String productName, int qty, double unitCost) {
 		this.productName = productName;
 		this.qty = qty;
 		this.unitCost = unitCost;
-		this.reOrder = reOrder;
 		this.productId = getID();
 	}
 	

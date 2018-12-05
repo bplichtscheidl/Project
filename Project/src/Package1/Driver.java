@@ -154,6 +154,8 @@ public class Driver extends JFrame{
 		
 		Driver gui = new Driver("Inventory Manager");
 		gui.setVisible(true);
+	}
+}
 	
 		/*Inventory inv = new Inventory();
 		BackOrder bo = new BackOrder();
@@ -191,7 +193,7 @@ public class Driver extends JFrame{
 		System.out.println(qty1);
 		System.out.println(qty2);
 		System.out.println(qty3);*/
-			Inventory inv = new Inventory();
+			/*Inventory inv = new Inventory();
 			BackOrder bo = new BackOrder();
 			InvReOrder re = new InvReOrder();
 			Product product1 = new Product("Paper", 5, 59.99, re);
@@ -210,5 +212,5 @@ public class Driver extends JFrame{
 
 	}
 
-}
+}*/
 

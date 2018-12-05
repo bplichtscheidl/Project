@@ -61,8 +61,8 @@ public class Inventory {
 				+productsName;
 	}
 	
-	public void addProduct(String productName, int qty, double unitCost, InvReOrder reOrder) {
-		Product product = new Product(productName, qty, unitCost, reOrder);
+	public void addProduct(String productName, int qty, double unitCost) {
+		Product product = new Product(productName, qty, unitCost,);
 		addProduct(product);
 	}
 	

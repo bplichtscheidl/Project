@@ -1,6 +1,8 @@
 package Package1;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -33,6 +35,27 @@ public class AddItem extends JFrame {
 	private JTextField qtyTxt = new JTextField(SwingConstants.CENTER);
 	private JTextField priceTxt = new JTextField(SwingConstants.CENTER);
 	
+	Inventory inv = new Inventory();
+	
+	//Button Listeners 
+		private class BtnListener implements ActionListener {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String callingBtn = e.getActionCommand();
+				
+				if(callingBtn.equals("Add")) {
+					String itemTxt = itemNameTxt.getText();
+					String qtyText = qtyTxt.getText();
+					int qty = Integer.parseInt(qtyText);
+					String priceText = priceTxt.getText();
+					double price = Double.parseDouble(priceText);
+					Product productInfo = new Product(itemTxt, qty, price);
+					inv.addProduct(productInfo);
+				}
+			}
+		}
+	
 	
 	
 	public AddItem(String title) {
@@ -54,6 +77,7 @@ public class AddItem extends JFrame {
 		bottomPanel.add(consoleTxt, BorderLayout.NORTH);
 		JScrollPane consoleArea = new JScrollPane(consoleTxt);
 		bottomPanel.add(consoleArea, BorderLayout.CENTER);
+		consoleTxt.setEditable(false);
 	}
 
 	private void createBtnPanel() {
@@ -67,6 +91,15 @@ public class AddItem extends JFrame {
 		topPanel.add(qtyTxt);
 		topPanel.add(price);
 		topPanel.add(priceTxt);
+	}
+	
+	private class ButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+						
+		}
+		
 	}
 	
 	public static void main(String[] args) {
