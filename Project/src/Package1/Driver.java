@@ -1,5 +1,5 @@
 package Package1;
-import java.awt.*;
+import java.awt.*; 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -40,6 +40,35 @@ public class Driver extends JFrame{
 	// Text Fields
 	private JTextField searchTxtFld = new JTextField();
 	
+	//Button Listeners 
+	private class BtnListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String callingBtn = e.getActionCommand();
+			
+			if(callingBtn.equals("Add an item")) {
+				AddItem addFrame = new AddItem("Add Item");
+				addFrame.setVisible(true);
+				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				
+				
+				
+			}
+			
+			else if(callingBtn.equals("Refresh Inventory")) {
+				
+			}
+			
+			else if(callingBtn.equals("Search")) {
+				
+				
+			}
+			
+		}
+		
+	}
+	
 	
 	
 	public Driver(String title) {
@@ -50,7 +79,7 @@ public class Driver extends JFrame{
 		//setSize(500, 500); SetBounds overrides this
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		setBounds(600, 400, 450, 300); // (x, y, width, height)
+		setBounds(600, 400, 1000, 600); // (x, y, width, height)
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -68,6 +97,7 @@ public class Driver extends JFrame{
 		
 		// Add the ActionListeners
 		// Example: btn.addActionListener(new ButtonListener());
+		addItem.addActionListener(new BtnListener());
 		
 		
 		

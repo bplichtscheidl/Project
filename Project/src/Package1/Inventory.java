@@ -61,6 +61,10 @@ public class Inventory {
 				+productsName;
 	}
 	
+	public void addProduct(String productName, int qty, double unitCost, InvReOrder reOrder) {
+		Product product = new Product(productName, qty, unitCost, reOrder);
+		addProduct(product);
+	}
 	
 	//adds a new product to the array
 	public void addProduct(Product product) {
