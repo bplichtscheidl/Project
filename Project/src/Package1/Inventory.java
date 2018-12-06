@@ -62,7 +62,7 @@ public class Inventory {
 	}
 	
 	public void addProduct(String productName, int qty, double unitCost) {
-		Product product = new Product(productName, qty, unitCost,);
+		Product product = new Product(productName, qty, unitCost);
 		addProduct(product);
 	}
 	

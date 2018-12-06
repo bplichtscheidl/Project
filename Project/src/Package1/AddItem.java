@@ -46,10 +46,13 @@ public class AddItem extends JFrame {
 				
 				if(callingBtn.equals("Add")) {
 					String itemTxt = itemNameTxt.getText();
+					
 					String qtyText = qtyTxt.getText();
 					int qty = Integer.parseInt(qtyText);
+					
 					String priceText = priceTxt.getText();
 					double price = Double.parseDouble(priceText);
+					
 					Product productInfo = new Product(itemTxt, qty, price);
 					inv.addProduct(productInfo);
 				}

@@ -26,7 +26,7 @@ public class Driver extends JFrame{
 	private JLabel searchLbl = new JLabel("Search for an item: ");
 	
 	// Buttons
-	private JButton createOrder = new JButton("Create an order");
+	private JButton displayInv = new JButton("Display Inventory");
 	private JButton searchForItem = new JButton("Search");
 	private JButton addItem = new JButton("Add an item");
 	private JButton refreshInv = new JButton("Refresh Inventory");
@@ -40,6 +40,8 @@ public class Driver extends JFrame{
 	// Text Fields
 	private JTextField searchTxtFld = new JTextField();
 	
+	Inventory inv = new Inventory();
+	
 	//Button Listeners 
 	private class BtnListener implements ActionListener {
 
@@ -51,18 +53,21 @@ public class Driver extends JFrame{
 				AddItem addFrame = new AddItem("Add Item");
 				addFrame.setVisible(true);
 				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				
-				
-				
 			}
 			
 			else if(callingBtn.equals("Refresh Inventory")) {
-				
+				invConsole.setText(" ");
 			}
 			
 			else if(callingBtn.equals("Search")) {
+				String searchText = searchTxtFld.getText();
+				String itemSearch = inv.searchByProductName(searchText);
+				invConsole.append(itemSearch);
 				
-				
+			}
+			
+			else if(callingBtn.equals("Display Inventory")) {
+				invConsole.append(" ");
 			}
 			
 		}
@@ -98,6 +103,10 @@ public class Driver extends JFrame{
 		// Add the ActionListeners
 		// Example: btn.addActionListener(new ButtonListener());
 		addItem.addActionListener(new BtnListener());
+		displayInv.addActionListener(new BtnListener());
+		refreshInv.addActionListener(new BtnListener());
+		searchForItem.addActionListener(new BtnListener());
+		
 		
 		
 		
@@ -108,7 +117,7 @@ public class Driver extends JFrame{
 	private void createTopPanel() {
 		// Add components to the Top Panel
 		topPanel.add(addItem);
-		topPanel.add(createOrder);
+		topPanel.add(displayInv);
 		topPanel.add(refreshInv);
 		
 	}
