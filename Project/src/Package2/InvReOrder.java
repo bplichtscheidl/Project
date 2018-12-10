@@ -29,7 +29,8 @@ public class InvReOrder {
 	//Takes the products price and finds the total 
 	//amount the back order costs
 	public void setOrdTotal(double price) {
-		this.total = this.ordQty * cost * tax;
+		this.cost = price;
+		this.total = this.ordQty * this.cost * tax;
 	}
 	
 	public int getOrdQty() {
@@ -46,8 +47,8 @@ public class InvReOrder {
 	
 	public String toString() {
 		String resupply = " ";
-		resupply = "Backorder quantity: " + this.ordQty + "\nBackorder total: " + this.total +
-					"\nWholesale Cost: " + cost;
+		resupply = "Backorder quantity: " + this.ordQty + "\nWholesale Cost: " + this.cost +
+					"\nBackorder total: " + this.total;
 
 		
 		return resupply;

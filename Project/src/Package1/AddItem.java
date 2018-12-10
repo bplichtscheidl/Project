@@ -38,8 +38,8 @@ public class AddItem extends JFrame {
 	private JTextField priceTxt = new JTextField(SwingConstants.CENTER);
 	
 	private Inventory inv;
-	
-	InvReOrder reOrderInfo = new InvReOrder();
+	private BackOrder backOrderInfo;
+	private InvReOrder reOrderInfo;
 	
 	//Button Listeners 
 		private class BtnListener implements ActionListener {
@@ -57,6 +57,7 @@ public class AddItem extends JFrame {
 					String priceText = priceTxt.getText();
 					double price = Double.parseDouble(priceText);
 					
+					backOrderInfo.setBo(qty);
 					reOrderInfo.setOrdTotal(price);
 					
 					inv.addProduct(itemTxt, qty, price, reOrderInfo);
@@ -67,9 +68,11 @@ public class AddItem extends JFrame {
 	
 	
 	
-	public AddItem(String title, Inventory inv) {
+	public AddItem(String title, Inventory inv, BackOrder backOrderInfo, InvReOrder reOrderInfo) {
 		super(title);
 		this.inv = inv;
+		this.backOrderInfo = backOrderInfo;
+		this.reOrderInfo = reOrderInfo;
 		
 		setSize(1000, 600);
 		setLayout(new GridLayout(3,1,100,50));

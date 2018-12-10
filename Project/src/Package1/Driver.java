@@ -41,6 +41,8 @@ public class Driver extends JFrame{
 	private JTextField searchTxtFld = new JTextField();
 	
 	Inventory inv = new Inventory();
+	BackOrder backOrderInfo = new BackOrder();
+	InvReOrder reOrderInfo = new InvReOrder();
 	
 	//Button Listeners 
 	private class BtnListener implements ActionListener {
@@ -50,7 +52,7 @@ public class Driver extends JFrame{
 			String callingBtn = e.getActionCommand();
 			
 			if(callingBtn.equals("Add an item")) {
-				AddItem addFrame = new AddItem("Add Item", inv);
+				AddItem addFrame = new AddItem("Add Item", inv, backOrderInfo, reOrderInfo);
 				addFrame.setVisible(true);
 				
 				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
