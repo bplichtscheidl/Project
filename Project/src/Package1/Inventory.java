@@ -14,39 +14,23 @@ public class Inventory {
 		this.index = 0;
 	}
 	
-	public Inventory(int size) {
+	/*public Inventory(int size) {
 		this.name = "Store Inventory";
 		this.products = new Product[size];
 		this.index = 0;
-	}
+	}*/
 	
 	//Searches through the array by product name
 	public String searchByProductName(String object) {
 		String productsName = " ";
-		Double productPrice = 0.0;
-		int productQty = 0;
-		//boolean boCheck = false;
-		InvReOrder reOrder = new InvReOrder();
-		BackOrder bo = new BackOrder();
-		
 		
 		for(int i = 0; i < products.length; i++) {
 			if(products[i] != null) {
 				productsName = products[i].getProductName();
 			}
 			
-			//transferring data to the other classes
 			if(productsName.equalsIgnoreCase(object)) {
-				
-				productQty = products[i].getQty();
-				bo.setBo(productQty);
-				
-				boolean boCheck = bo.getBo();
-				reOrder.setOrdQty(boCheck);
-				
-				productPrice = products[i].getUnitCost();
-				reOrder.SetOrdTotal(productPrice);
-				
+	
 				productsName = products[i].toString();
 				break;
 			}
@@ -61,8 +45,8 @@ public class Inventory {
 				+productsName;
 	}
 	
-	public void addProduct(String productName, int qty, double unitCost) {
-		Product product = new Product(productName, qty, unitCost);
+	public void addProduct(String productName, int qty, double unitCost, InvReOrder reOrder) {
+		Product product = new Product(productName, qty, unitCost, reOrder);
 		addProduct(product);
 	}
 	
@@ -85,7 +69,9 @@ public class Inventory {
 		}
 		products = newArray;
 	}
-
+	
+	
+	//won't display whats in loop
 	//displays the products in the array
 	public String toString() {
 		String storeInventory = this.name;

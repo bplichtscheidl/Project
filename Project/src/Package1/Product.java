@@ -11,10 +11,11 @@ public class Product {
 	private InvReOrder reOrder;
 	
 	//Creating an object
-	public Product(String productName, int qty, double unitCost) {
+	public Product(String productName, int qty, double unitCost, InvReOrder reOrder) {
+		this.reOrder = reOrder;
 		this.productName = productName;
 		this.qty = qty;
-		this.unitCost = unitCost;
+		this.unitCost = unitCost * 1.2;
 		this.productId = getID();
 	}
 	
@@ -65,7 +66,7 @@ public class Product {
 	//Displays product information
 	public String toString() {
 		return ("Product: " + this.productName + "\n" + "Quantity: " + this.qty + 
-				"\n" + "Unit Cost: $" + this.unitCost +"\n" + "Product Id: " 
+				"\n" + "Retail Cost: $" + this.unitCost +"\n" + "Product Id: " 
 				+ this.productId +"\n" + reOrder.toString());
 	}
 

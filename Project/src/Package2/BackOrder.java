@@ -10,21 +10,18 @@ public class BackOrder {
 	}
 
 	//Testing if the quantity of the item is above or below the minimum
-	public void setBo(int foundQty) {
-		boolean bo = false;
+	public void setBo(int qty) {
+		//boolean bo = false;
 		
-		if(foundQty < this.minQty) {
+		if(qty < this.minQty) {
 			this.bo = true;
 		}
 		else {
 			this.bo = false;
 			
 		}
-		this.bo = bo;
-	}
-	
-	public void setBo(boolean bo) {
-		this.bo = bo;
+		InvReOrder setBoQty = new InvReOrder();
+		setBoQty.setOrdQty(this.bo);
 	}
 	
 	public boolean getBo() {

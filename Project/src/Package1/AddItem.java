@@ -13,6 +13,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Package2.*;
+
 public class AddItem extends JFrame {
 	//JPanels
 	private JPanel topPanel = new JPanel (new GridLayout(3,1));
@@ -35,7 +37,9 @@ public class AddItem extends JFrame {
 	private JTextField qtyTxt = new JTextField(SwingConstants.CENTER);
 	private JTextField priceTxt = new JTextField(SwingConstants.CENTER);
 	
-	Inventory inv = new Inventory();
+	private Inventory inv;
+	
+	InvReOrder reOrderInfo = new InvReOrder();
 	
 	//Button Listeners 
 		private class BtnListener implements ActionListener {
@@ -53,16 +57,19 @@ public class AddItem extends JFrame {
 					String priceText = priceTxt.getText();
 					double price = Double.parseDouble(priceText);
 					
-					Product productInfo = new Product(itemTxt, qty, price);
-					inv.addProduct(productInfo);
+					reOrderInfo.setOrdTotal(price);
+					
+					inv.addProduct(itemTxt, qty, price, reOrderInfo);
+					consoleTxt.append(itemTxt + " has been added\n");
 				}
 			}
 		}
 	
 	
 	
-	public AddItem(String title) {
+	public AddItem(String title, Inventory inv) {
 		super(title);
+		this.inv = inv;
 		
 		setSize(1000, 600);
 		setLayout(new GridLayout(3,1,100,50));
@@ -73,6 +80,8 @@ public class AddItem extends JFrame {
 		add(topPanel);
 		add(btnPanel);
 		add(bottomPanel);
+		
+		add.addActionListener(new BtnListener());
 			
 		}
 			

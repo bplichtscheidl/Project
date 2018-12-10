@@ -7,35 +7,29 @@ public class InvReOrder {
 	private int ordQty;
 	private double tax;
 	private double total;
+	private double cost;
 	private Date ordDate;
 	private Date arrivalDate;
 	
 	public InvReOrder() {
-		ordQty = 10;
 		tax = 1.07125;
 	}
 	
 	//Depending on what the boolean was from BackOrder
 	//it will set either 10 or 0 for the back order quantity
-	public int setOrdQty(boolean bo) {
+	public void setOrdQty(boolean bo) {
 		if(bo == true) {
-			ordQty = 10;
+			this.ordQty = 10;
 		}
 		else {
-			ordQty = 0;
+			this.ordQty = 0;
 		}
-		return ordQty;
 	}
 	
 	//Takes the products price and finds the total 
 	//amount the back order costs
-	public double SetOrdTotal(double price) {
-		double total = this.ordQty * price * tax;
-		return total;
-	}
-	
-	public double getOrdTotal() {
-		return total;
+	public void setOrdTotal(double price) {
+		this.total = this.ordQty * cost * tax;
 	}
 	
 	public int getOrdQty() {
@@ -52,12 +46,9 @@ public class InvReOrder {
 	
 	public String toString() {
 		String resupply = " ";
-		if(this.ordQty > 0) {
-		resupply = "Backorder quantity: " + this.ordQty + "\nBackorder total: " + total;
-		}
-		else {
-			resupply = " ";
-		}
+		resupply = "Backorder quantity: " + this.ordQty + "\nBackorder total: " + this.total +
+					"\nWholesale Cost: " + cost;
+
 		
 		return resupply;
 	}
