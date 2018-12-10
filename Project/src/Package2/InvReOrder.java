@@ -12,25 +12,28 @@ public class InvReOrder {
 	private Date arrivalDate;
 	
 	public InvReOrder() {
-		tax = 1.07125;
+		this.tax = 1.07125;
+		
 	}
 	
 	//Depending on what the boolean was from BackOrder
 	//it will set either 10 or 0 for the back order quantity
-	public void setOrdQty(boolean bo) {
+	public int setOrdQty(boolean bo) {
 		if(bo == true) {
-			this.ordQty = 10;
+			ordQty = 10;
 		}
 		else {
-			this.ordQty = 0;
+			ordQty = 0;
 		}
+		return ordQty;
 	}
 	
 	//Takes the products price and finds the total 
 	//amount the back order costs
-	public void setOrdTotal(double price) {
+	public void setOrdTotal(double price, int ordQty) {
+		this.ordQty = ordQty;
 		this.cost = price;
-		this.total = this.ordQty * this.cost * tax;
+		total = this.ordQty * this.cost * this.tax;
 	}
 	
 	public int getOrdQty() {

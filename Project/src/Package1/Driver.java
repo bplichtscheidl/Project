@@ -54,7 +54,6 @@ public class Driver extends JFrame{
 			if(callingBtn.equals("Add an item")) {
 				AddItem addFrame = new AddItem("Add Item", inv, backOrderInfo, reOrderInfo);
 				addFrame.setVisible(true);
-				
 				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 			

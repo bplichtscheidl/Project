@@ -56,9 +56,10 @@ public class AddItem extends JFrame {
 					
 					String priceText = priceTxt.getText();
 					double price = Double.parseDouble(priceText);
-					
-					backOrderInfo.setBo(qty);
-					reOrderInfo.setOrdTotal(price);
+	
+					boolean backOrderBool = backOrderInfo.setBo(qty);
+					int backOrderQty = reOrderInfo.setOrdQty(backOrderBool);
+					reOrderInfo.setOrdTotal(price, backOrderQty);
 					
 					inv.addProduct(itemTxt, qty, price, reOrderInfo);
 					consoleTxt.append(itemTxt + " has been added\n");

@@ -14,12 +14,6 @@ public class Inventory {
 		this.index = 0;
 	}
 	
-	/*public Inventory(int size) {
-		this.name = "Store Inventory";
-		this.products = new Product[size];
-		this.index = 0;
-	}*/
-	
 	//Searches through the array by product name
 	public String searchByProductName(String object) {
 		String productsName = " ";
@@ -70,8 +64,6 @@ public class Inventory {
 		products = newArray;
 	}
 	
-	
-	//won't display whats in loop
 	//displays the products in the array
 	public String toString() {
 		String storeInventory = this.name;
