@@ -40,6 +40,8 @@ public class Driver extends JFrame{
 	// Text Fields
 	private JTextField searchTxtFld = new JTextField();
 	
+	
+	
 	Inventory inv = new Inventory();
 	BackOrder backOrderInfo = new BackOrder();
 	InvReOrder reOrderInfo = new InvReOrder();
@@ -95,11 +97,12 @@ public class Driver extends JFrame{
 		createConsolePanel();
 		createBottomPanel();
 		
-		// Add the sub-panels to contentPane
 		
+		// Add the sub-panels to contentPane
 		contentPane.add(topPanel, BorderLayout.NORTH);
 		contentPane.add(consolePanel, BorderLayout.CENTER);
 		contentPane.add(bottomPanel, BorderLayout.SOUTH);
+		
 		
 		// Add the ActionListeners
 		// Example: btn.addActionListener(new ButtonListener());

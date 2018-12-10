@@ -16,26 +16,32 @@ import javax.swing.SwingConstants;
 import Package2.*;
 
 public class AddItem extends JFrame {
+	
 	//JPanels
 	private JPanel topPanel = new JPanel (new GridLayout(3,1));
 	private JPanel btnPanel = new JPanel (new FlowLayout());
 	private JPanel bottomPanel = new JPanel (new BorderLayout());
+	
 	
 	//Labels
 	private JLabel itemName = new JLabel("Item Description: ", SwingConstants.CENTER);
 	private JLabel qty = new JLabel("Quantity: ", SwingConstants.CENTER);
 	private JLabel price = new JLabel("Price: ", SwingConstants.CENTER);
 	
+	
 	//Buttons
 	private JButton add = new JButton("Add");
 	
+	
 	//TextArea
 	private JTextArea consoleTxt = new JTextArea();
+	
 	
 	//TextField
 	private JTextField itemNameTxt = new JTextField(SwingConstants.CENTER);
 	private JTextField qtyTxt = new JTextField(SwingConstants.CENTER);
 	private JTextField priceTxt = new JTextField(SwingConstants.CENTER);
+	
 	
 	private Inventory inv;
 	private BackOrder backOrderInfo;
@@ -75,7 +81,8 @@ public class AddItem extends JFrame {
 		this.backOrderInfo = backOrderInfo;
 		this.reOrderInfo = reOrderInfo;
 		
-		setSize(1000, 600);
+		//setSize(500, 300);
+		setBounds(850, 550, 500, 300);
 		setLayout(new GridLayout(3,1,100,50));
 		
 		createTopPanel();
