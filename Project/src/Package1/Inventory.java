@@ -16,7 +16,25 @@ public class Inventory {
 		this.index = 0;
 	}
 	
-	// Searches through the array by product name
+	public boolean searchForDuplicate(String object) {
+		String productsName = " ";
+		boolean duplicate = false;
+		
+		for(int i = 0; i < products.length; i++) {
+			if(products[i] != null) {
+				productsName = products[i].getProductName();
+			}
+			
+			if(productsName.equalsIgnoreCase(object)) {
+				duplicate = true;
+				productsName = "Item already exists";
+				break;
+			}
+		}
+		return duplicate;
+	}
+	
+	//Searches through the array by product name
 	public String searchByProductName(String object) {
 		String productsName = " ";
 		
@@ -71,7 +89,7 @@ public class Inventory {
 		addProduct(product);
 	}
 	
-	// adds a new product to the array
+	//adds a new product to the array
 	public void addProduct(Product product) {
 		if(index == products.length)
 			ensureCapacity();
@@ -80,7 +98,7 @@ public class Inventory {
 		index++;
 	}
 	
-	// doubles the size of the array if it's full
+	//doubles the size of the array if it's full
 	private void ensureCapacity() {
 		int newSize = products.length * 2;
 		Product[] newArray = new Product[newSize];
@@ -91,7 +109,7 @@ public class Inventory {
 		products = newArray;
 	}
 	
-	// displays the products in the array
+	//displays the products in the array
 	public String toString() {
 		String storeInventory = this.name;
 		for(int i = 0; i < index; i++) {
