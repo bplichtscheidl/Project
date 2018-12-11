@@ -17,27 +17,27 @@ import Package2.*;
 
 public class AddItem extends JFrame {
 	
-	// JPanels
+	//JPanels
 	private JPanel topPanel = new JPanel (new GridLayout(3,1));
 	private JPanel btnPanel = new JPanel (new FlowLayout());
 	private JPanel bottomPanel = new JPanel (new BorderLayout());
 	
 	
-	// Labels
+	//Labels
 	private JLabel itemName = new JLabel("Item Description: ", SwingConstants.RIGHT);
 	private JLabel qty = new JLabel("Quantity: ", SwingConstants.RIGHT);
 	private JLabel price = new JLabel("Price: ", SwingConstants.RIGHT);
 	
 	
-	// Buttons
+	//Buttons
 	private JButton add = new JButton("Add");
 	
 	
-	// TextArea
+	//TextArea
 	private JTextArea consoleTxt = new JTextArea();
 	
 	
-	// TextField
+	//TextField
 	private JTextField itemNameTxt = new JTextField();
 	private JTextField qtyTxt = new JTextField();
 	private JTextField priceTxt = new JTextField();
@@ -47,7 +47,7 @@ public class AddItem extends JFrame {
 	private BackOrder backOrderInfo;
 	private InvReOrder reOrder;
 	
-	// Button Listeners 
+	//Button Listeners 
 		private class BtnListener implements ActionListener {
 
 			@Override
@@ -56,19 +56,26 @@ public class AddItem extends JFrame {
 				
 				if(callingBtn.equals("Add")) {
 					String itemTxt = itemNameTxt.getText();
+					boolean duplicate = inv.searchForDuplicate(itemTxt);
 					
 					String qtyText = qtyTxt.getText();
 					int qty = Integer.parseInt(qtyText);
 					
 					String priceText = priceTxt.getText();
 					double price = Double.parseDouble(priceText);
-	
-					boolean backOrderBool = backOrderInfo.setBo(qty);
-					int backOrderQty = reOrder.setOrdQty(backOrderBool);
-					reOrder.setOrdTotal(price, backOrderQty);
 					
-					inv.addProduct(itemTxt, qty, price, reOrder);
-					consoleTxt.append(itemTxt + " has been added\n");
+					if(duplicate == false) {
+						
+						boolean backOrderBool = backOrderInfo.setBo(qty);
+						int backOrderQty = reOrder.setOrdQty(backOrderBool);
+						reOrder.setOrdTotal(price, backOrderQty);
+					
+						inv.addProduct(itemTxt, qty, price, reOrder);
+						consoleTxt.append(itemTxt + " has been added\n");
+					}
+					else {
+						consoleTxt.append("Item already exists!");
+					}
 				}
 			}
 		}
@@ -81,7 +88,7 @@ public class AddItem extends JFrame {
 		this.backOrderInfo = backOrderInfo;
 		this.reOrder = reOrder;
 		
-		// setSize(500, 300);
+		//setSize(500, 300);
 		setBounds(850, 550, 500, 300);
 		setLayout(new GridLayout(3,1,100,50));
 		
