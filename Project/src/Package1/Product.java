@@ -13,16 +13,16 @@ public class Product {
 	private InvReOrder reOrder;
 	NumberFormat moneyFormatter = NumberFormat.getCurrencyInstance();
 	
-	// Creating an object
+	//Creating an object
 	public Product(String productName, int qty, double unitCost, InvReOrder reOrder) {
 		this.reOrder = reOrder;
 		this.productName = productName;
 		this.qty = qty;
-		this.unitCost = unitCost * 1.2;
+		this.unitCost = unitCost * 1.2 * reOrder.getTax();
 		this.productId = getID();
 	}
-	
-	// Generates random item number
+
+	//Generates random item number
 	public long getID() {
 		Random rand = new Random();
 		long num = (long)(rand.nextInt(900000000)+ 100000000);
@@ -66,11 +66,11 @@ public class Product {
 		this.reOrder = reOrder;
 	}
 
-	// Displays product information
+	//Displays product information
 	public String toString() {
 		return ("Product: " + this.productName + "\n" + "Quantity: " + this.qty + 
 				"\n" + "Retail Cost: " + moneyFormatter.format(this.unitCost) +"\n" + "Product Id: " 
-				+ this.productId +"\n" + reOrder.toString());
+				+ this.productId +"\n" + this.reOrder.toString());
 	}
 
 }
