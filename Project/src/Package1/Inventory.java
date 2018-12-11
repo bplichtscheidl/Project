@@ -95,8 +95,13 @@ public class Inventory {
 	public String toString() {
 		String storeInventory = this.name;
 		for(int i = 0; i < index; i++) {
+			if(products[i] == null)
+			products[i] = products[i+1];
+			
+			else{
 			storeInventory += products[i].toString() + "\n_________________________________________\n"
 					+ "\n";
+			}
 		}
 		return storeInventory;
 	}
