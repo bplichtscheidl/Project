@@ -12,7 +12,7 @@ import Package2.*;
 public class Driver extends JFrame{
 
 // GUI
-	
+
 	// Initialize GUI Components
 	
 	// Panels
@@ -44,7 +44,7 @@ public class Driver extends JFrame{
 	private JTextField removeTxtFld = new JTextField();
 	
 	
-	// Objects
+	
 	Inventory inv = new Inventory();
 	BackOrder backOrderInfo = new BackOrder();
 	InvReOrder reOrder = new InvReOrder();
