@@ -1,7 +1,9 @@
 package Package1;
 import Package2.*;
 
+import java.text.NumberFormat;
 import java.util.Random;
+
 
 public class Product {
 	private String productName;
@@ -9,6 +11,7 @@ public class Product {
 	private double unitCost;
 	private long productId;
 	private InvReOrder reOrder;
+	NumberFormat moneyFormatter = NumberFormat.getCurrencyInstance();
 	
 	//Creating an object
 	public Product(String productName, int qty, double unitCost, InvReOrder reOrder) {
@@ -66,7 +69,7 @@ public class Product {
 	//Displays product information
 	public String toString() {
 		return ("Product: " + this.productName + "\n" + "Quantity: " + this.qty + 
-				"\n" + "Retail Cost: $" + this.unitCost +"\n" + "Product Id: " 
+				"\n" + "Retail Cost: " + moneyFormatter.format(this.unitCost) +"\n" + "Product Id: " 
 				+ this.productId +"\n" + reOrder.toString());
 	}
 

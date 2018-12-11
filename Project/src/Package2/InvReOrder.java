@@ -1,5 +1,6 @@
 package Package2;
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.Date;
 
 import Package1.*;
@@ -11,6 +12,7 @@ public class InvReOrder {
 	private double cost;
 	private Date ordDate;
 	private Date arrivalDate;
+	
 	
 	public InvReOrder() {
 		this.tax = 1.07125;
@@ -57,8 +59,8 @@ public class InvReOrder {
 	
 	public String toString() {
 		String resupply = " ";
-		resupply = "Backorder quantity: " + this.ordQty + "\nWholesale Cost: " + this.cost +
-					"\nBackorder total: " + this.total;
+		resupply = "Backorder quantity: " + this.ordQty + "\nWholesale Cost: $" + this.cost +
+					"\nBackorder total: $" + this.total;
 
 		
 		return resupply;
