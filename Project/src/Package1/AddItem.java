@@ -74,7 +74,7 @@ public class AddItem extends JFrame {
 						consoleTxt.append(itemTxt + " has been added\n");
 					}
 					else {
-						consoleTxt.append("Item already exists!");
+						consoleTxt.append("Item already exists!\n");
 					}
 				}
 			}
