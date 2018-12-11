@@ -24,12 +24,14 @@ public class Driver extends JFrame{
 	
 	// Labels
 	private JLabel searchLbl = new JLabel("Search for an item: ");
+	private JLabel removeLbl = new JLabel("Remove an item: ");
 	
 	// Buttons
 	private JButton displayInv = new JButton("Display Inventory");
 	private JButton searchForItem = new JButton("Search");
 	private JButton addItem = new JButton("Add an item");
 	private JButton refreshInv = new JButton("Refresh Inventory");
+	private JButton removeBtn = new JButton("Remove item");
 	
 	
 	// Text Area
@@ -39,12 +41,13 @@ public class Driver extends JFrame{
 	
 	// Text Fields
 	private JTextField searchTxtFld = new JTextField();
+	private JTextField removeTxtFld = new JTextField();
 	
 	
 	
 	Inventory inv = new Inventory();
 	BackOrder backOrderInfo = new BackOrder();
-	InvReOrder reOrderInfo = new InvReOrder();
+	InvReOrder reOrder = new InvReOrder();
 	
 	//Button Listeners 
 	private class BtnListener implements ActionListener {
@@ -54,7 +57,7 @@ public class Driver extends JFrame{
 			String callingBtn = e.getActionCommand();
 			
 			if(callingBtn.equals("Add an item")) {
-				AddItem addFrame = new AddItem("Add Item", inv, backOrderInfo, reOrderInfo);
+				AddItem addFrame = new AddItem("Add Item", inv, backOrderInfo, reOrder);
 				addFrame.setVisible(true);
 				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
@@ -67,6 +70,12 @@ public class Driver extends JFrame{
 				String searchText = searchTxtFld.getText();
 				String itemSearch = inv.searchByProductName(searchText);
 				invConsole.append(itemSearch + "\n");
+			}
+			
+			else if(callingBtn.equals("Remove item")) {
+				String removeText = removeTxtFld.getText();
+				String itemRemove = inv.removeProduct(removeText);
+				invConsole.append(itemRemove + "\n");
 			}
 			
 			else if(callingBtn.equals("Display Inventory")) {
@@ -110,6 +119,7 @@ public class Driver extends JFrame{
 		displayInv.addActionListener(new BtnListener());
 		refreshInv.addActionListener(new BtnListener());
 		searchForItem.addActionListener(new BtnListener());
+		removeBtn.addActionListener(new BtnListener());
 		
 		
 		
@@ -149,6 +159,12 @@ public class Driver extends JFrame{
 		searchTxtFld.setColumns(10);
 		
 		bottomPanel.add(searchForItem);
+		
+		bottomPanel.add(removeLbl);
+		bottomPanel.add(removeTxtFld);
+		removeTxtFld.setColumns(10);
+		bottomPanel.add(removeBtn);
+		
 	}
 
 

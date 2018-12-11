@@ -41,6 +41,31 @@ public class Inventory {
 				+productsName;
 	}
 	
+	public String removeProduct(String object) {
+		String productName = " ";
+		
+		for(int i = 0; i < products.length; i++) {
+			if(products[i] != null) {
+				productName = products[i].getProductName();
+			}
+			
+			if(productName.equalsIgnoreCase(object)) {
+				products[i] = null;
+				
+				for(int count = i; count < products.length - 1; count++) {
+						products[count] = products[count + 1];
+				}
+				productName = object + " has been removed.";
+				break;
+			}
+			if(!(productName.equalsIgnoreCase(object))) {
+				productName = "No such item";
+			}
+		}
+		return productName;
+		
+	}
+	
 	public void addProduct(String productName, int qty, double unitCost, InvReOrder reOrder) {
 		Product product = new Product(productName, qty, unitCost, reOrder);
 		addProduct(product);

@@ -24,9 +24,9 @@ public class AddItem extends JFrame {
 	
 	
 	//Labels
-	private JLabel itemName = new JLabel("Item Description: ", SwingConstants.CENTER);
-	private JLabel qty = new JLabel("Quantity: ", SwingConstants.CENTER);
-	private JLabel price = new JLabel("Price: ", SwingConstants.CENTER);
+	private JLabel itemName = new JLabel("Item Description: ", SwingConstants.RIGHT);
+	private JLabel qty = new JLabel("Quantity: ", SwingConstants.RIGHT);
+	private JLabel price = new JLabel("Price: ", SwingConstants.RIGHT);
 	
 	
 	//Buttons
@@ -38,14 +38,14 @@ public class AddItem extends JFrame {
 	
 	
 	//TextField
-	private JTextField itemNameTxt = new JTextField(SwingConstants.CENTER);
-	private JTextField qtyTxt = new JTextField(SwingConstants.CENTER);
-	private JTextField priceTxt = new JTextField(SwingConstants.CENTER);
+	private JTextField itemNameTxt = new JTextField();
+	private JTextField qtyTxt = new JTextField();
+	private JTextField priceTxt = new JTextField();
 	
 	
 	private Inventory inv;
 	private BackOrder backOrderInfo;
-	private InvReOrder reOrderInfo;
+	private InvReOrder reOrder;
 	
 	//Button Listeners 
 		private class BtnListener implements ActionListener {
@@ -64,10 +64,10 @@ public class AddItem extends JFrame {
 					double price = Double.parseDouble(priceText);
 	
 					boolean backOrderBool = backOrderInfo.setBo(qty);
-					int backOrderQty = reOrderInfo.setOrdQty(backOrderBool);
-					reOrderInfo.setOrdTotal(price, backOrderQty);
+					int backOrderQty = reOrder.setOrdQty(backOrderBool);
+					reOrder.setOrdTotal(price, backOrderQty);
 					
-					inv.addProduct(itemTxt, qty, price, reOrderInfo);
+					inv.addProduct(itemTxt, qty, price, reOrder);
 					consoleTxt.append(itemTxt + " has been added\n");
 				}
 			}
@@ -75,11 +75,11 @@ public class AddItem extends JFrame {
 	
 	
 	
-	public AddItem(String title, Inventory inv, BackOrder backOrderInfo, InvReOrder reOrderInfo) {
+	public AddItem(String title, Inventory inv, BackOrder backOrderInfo, InvReOrder reOrder) {
 		super(title);
 		this.inv = inv;
 		this.backOrderInfo = backOrderInfo;
-		this.reOrderInfo = reOrderInfo;
+		this.reOrder = reOrder;
 		
 		//setSize(500, 300);
 		setBounds(850, 550, 500, 300);
