@@ -166,18 +166,6 @@ public class Driver extends JFrame{
 		bottomPanel.add(removeBtn);
 		
 	}
-
-
-
-	private class ButtonListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-						
-		}
-		
-	}
-	
 	
 	public static void main(String[] args) {
 		
