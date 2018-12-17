@@ -44,12 +44,12 @@ public class Driver extends JFrame{
 	private JTextField removeTxtFld = new JTextField();
 	
 	
-	
+	// new class instances
 	Inventory inv = new Inventory();
 	BackOrder backOrderInfo = new BackOrder();
 	InvReOrder reOrder = new InvReOrder();
 	
-	//Button Listeners 
+	// Button Listeners 
 	private class BtnListener implements ActionListener {
 
 		@Override
@@ -93,7 +93,6 @@ public class Driver extends JFrame{
 		
 		// Main GUI Settings
 		
-		//setSize(500, 500); SetBounds overrides this
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		setBounds(600, 400, 1000, 600); // (x, y, width, height)
@@ -120,9 +119,6 @@ public class Driver extends JFrame{
 		refreshInv.addActionListener(new BtnListener());
 		searchForItem.addActionListener(new BtnListener());
 		removeBtn.addActionListener(new BtnListener());
-		
-		
-		
 		
 	}
 	

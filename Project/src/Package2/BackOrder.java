@@ -9,7 +9,8 @@ public class BackOrder {
 		this.minQty = 5;
 	}
 
-	//Testing if the quantity of the item is above or below the minimum
+	
+	// Testing if the quantity of the item is above or below the minimum
 	public boolean setBo(int qty) {
 		
 		if(qty < this.minQty) {

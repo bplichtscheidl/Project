@@ -15,8 +15,9 @@ public class InvReOrder {
 		
 	}
 	
-	//Depending on what the boolean was from BackOrder
-	//it will set either 10 or 0 for the back order quantity
+	
+	/* Depending on what the boolean was from BackOrder
+	it will set either 10 or 0 for the back order quantity */
 	public int setOrdQty(boolean bo) {
 		if(bo == true) {
 			ordQty = 10;
@@ -27,8 +28,9 @@ public class InvReOrder {
 		return ordQty;
 	}
 	
-	//Takes the products price and finds the total 
-	//amount the back order costs
+	
+	/* Takes the products price and finds the total 
+	 amount the back order costs*/
 	public void setOrdTotal(double price, int ordQty) {
 		this.ordQty = ordQty;
 		this.cost = price;
@@ -46,6 +48,7 @@ public class InvReOrder {
 	public void setTax(double tax) {
 		this.tax = tax;
 	}
+	
 	
 	public String toString() {
 		String resupply = " ";
